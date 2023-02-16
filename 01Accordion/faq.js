@@ -18,19 +18,40 @@ const faqData = [
   },
 ];
 
-const accordianBody;
+const accordianBody = document.getElementsByClassName("accordian_body")[0];
+
 const faqs = [];
 
 function showFaq() {
   
 }
 
-function createFaq() {
-  
+function createFaq(question) {
+    const div = document.createElement("div")
+    div.classList.add("faq")
+    
+    const header = document.createElement("div")
+    header.classList.add("faq_header")
+    
+    
+    const btn = document.createElement('button')
+    btn.classList.add("show_btn")
+    btn.innerText = "+"
+    
+    const h3 = document.createElement('h3')
+    h3.innerText = question
+    
+    header.appendChild(h3)
+    header.appendChild(btn)
+    
+    
+    div.appendChild(header)
+    accordianBody.appendChild(div)
 }
 
 function btnStatusUpdate() {
   
 }
 
+createFaq("hello")
 
