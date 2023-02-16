@@ -26,7 +26,7 @@ function showFaq() {
   
 }
 
-function createFaq(question) {
+function createFaq(question, answer, id) {
     const div = document.createElement("div")
     div.classList.add("faq")
     
@@ -36,6 +36,7 @@ function createFaq(question) {
     
     const btn = document.createElement('button')
     btn.classList.add("show_btn")
+    btn.setAttribute("id", "btn")
     btn.innerText = "+"
     
     const h3 = document.createElement('h3')
@@ -47,11 +48,19 @@ function createFaq(question) {
     
     div.appendChild(header)
     accordianBody.appendChild(div)
+
+
+    const p = document.createElement("p")
+    p.innerText = answer
+    p.classList.add("hidden")
+    p.setAttribute("id", id)
+    div.appendChild(p)
 }
 
 function btnStatusUpdate() {
-  
+    
 }
 
-createFaq("hello")
-
+faqData.forEach(element => {
+    createFaq(element.question, element.answer, element.id)
+});
