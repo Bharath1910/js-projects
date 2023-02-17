@@ -82,7 +82,25 @@ function toScreamingKebabCase(strArr) {
 }
 
 function handleClick(str) {
+    strArr = str.toLowerCase().split(' ')
 
+    const camelCase = document.getElementById('camel-case')
+    camelCase.innerText = toCamelCase(strArr)
+
+    const pascalCase = document.getElementById('pascal-case')
+    pascalCase.innerText = toPascalCase(strArr)
+
+    const snakeCase = document.getElementById('snake-case')
+    snakeCase.innerText = toSnakeCase(strArr)
+
+    const screamingSnake = document.getElementById('screaming-snake-case')
+    screamingSnake.innerText = toScreamingSnakeCase(strArr)
+
+    const kebabCase = document.getElementById('kebab-case')
+    kebabCase.innerText = toKebabCase(strArr)
+
+    const screamingKebab = document.getElementById('screaming-kebab-case')
+    screamingKebab.innerText = toScreamingKebabCase(strArr)
 }
 
 const convertBtn = document.getElementById('convert-btn')
