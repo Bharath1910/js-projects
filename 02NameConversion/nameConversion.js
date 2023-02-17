@@ -43,13 +43,43 @@ function toSnakeCase(strArr) {
 
 
 function toScreamingSnakeCase(strArr) {
+    let returnString = ""
+    for (let i = 0; i < strArr.length; i++) {
+        if (i != (strArr.length - 1)) {
+            returnString += strArr[i].toUpperCase()
+            returnString += "_"
+        } else {
+            returnString += strArr[i].toUpperCase()
+        }
+    }
 
+    return returnString
 }
 
 function toKebabCase(strArr) {
+    let returnString = ""
+    for (let i = 0; i < strArr.length; i++) {
+        if (i != (strArr.length - 1)) {
+            returnString += strArr[i]
+            returnString += "-"
+        } else {
+            returnString += strArr[i]
+        }
+    }
 
+    return returnString
 } 
 
 function toScreamingKebabCase(strArr) {
+    let returnString = ""
+    for (let i = 0; i < strArr.length; i++) {
+        if (i != (strArr.length - 1)) {
+            returnString += strArr[i].toUpperCase()
+            returnString += "-"
+        } else {
+            returnString += strArr[i].toUpperCase()
+        }
+    }
 
+    return returnString
 }
