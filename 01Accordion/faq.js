@@ -38,27 +38,32 @@ function createFaq(question, answer, id) {
     btn.classList.add("show_btn")
     btn.setAttribute("id", "btn")
     btn.innerText = "+"
-    
+
     const h3 = document.createElement('h3')
     h3.innerText = question
     
     header.appendChild(h3)
     header.appendChild(btn)
     
-    
     div.appendChild(header)
     accordianBody.appendChild(div)
-
-
+    
     const p = document.createElement("p")
     p.innerText = answer
     p.classList.add("hidden")
     p.setAttribute("id", id)
     div.appendChild(p)
-}
 
-function btnStatusUpdate() {
-    
+    btnClicked = false
+    btn.addEventListener('click', e => {
+        if (!btnClicked) {
+            p.classList.remove("hidden")
+            btnClicked = true
+        } else {
+            p.classList.add("hidden")
+            btnClicked = false
+        }
+    })
 }
 
 faqData.forEach(element => {
