@@ -81,26 +81,32 @@ function toScreamingKebabCase(strArr) {
     return returnString
 }
 
+function handleConversion(strArr, casing) {
+    const cases = {
+        'camel-case': toCamelCase,
+        'pascal-case': toPascalCase,
+        'snake-case': toSnakeCase,
+        'screaming-snake-case': toScreamingSnakeCase,
+        'kebab-case': toKebabCase,
+        'screaming-kebab-case': toScreamingKebabCase
+    }
+
+    let p = document.getElementById(casing)
+    p.innerText = cases[casing](strArr)
+}
+
+
 function handleClick(str) {
-    strArr = str.toLowerCase().split(' ')
+    let strArr = str.toLowerCase().split(' ')
+    let cases = [
+        'camel-case', 'pascal-case', 'snake-case',
+        'screaming-snake-case', 'screaming-kebab-case',
+        'kebab-case'
+    ]
 
-    const camelCase = document.getElementById('camel-case')
-    camelCase.innerText = toCamelCase(strArr)
-
-    const pascalCase = document.getElementById('pascal-case')
-    pascalCase.innerText = toPascalCase(strArr)
-
-    const snakeCase = document.getElementById('snake-case')
-    snakeCase.innerText = toSnakeCase(strArr)
-
-    const screamingSnake = document.getElementById('screaming-snake-case')
-    screamingSnake.innerText = toScreamingSnakeCase(strArr)
-
-    const kebabCase = document.getElementById('kebab-case')
-    kebabCase.innerText = toKebabCase(strArr)
-
-    const screamingKebab = document.getElementById('screaming-kebab-case')
-    screamingKebab.innerText = toScreamingKebabCase(strArr)
+    cases.forEach(element => {
+        handleConversion(strArr, element)
+    })
 }
 
 const convertBtn = document.getElementById('convert-btn')
