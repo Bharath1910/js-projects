@@ -1,6 +1,3 @@
-const names = "hello hi hehe"
-strArr = names.split(' ')
-
 function capitalize(str) {
     return str.toLowerCase().charAt(0).toUpperCase() + (str.slice(1).toLowerCase())
 } 
@@ -83,3 +80,13 @@ function toScreamingKebabCase(strArr) {
 
     return returnString
 }
+
+function handleClick(str) {
+
+}
+
+const convertBtn = document.getElementById('convert-btn')
+convertBtn.addEventListener('click', event => {
+    const text = document.getElementById('text').value
+    handleClick(text)
+})
