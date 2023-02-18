@@ -1,23 +1,36 @@
 const resultEl = document.getElementById('result')
 const lengthEl = document.getElementById('length')
+
 const uppercaseEl = document.getElementById('uppercase')
 const lowercaseEl = document.getElementById('lowercase')
 const numbersEl = document.getElementById('numbers')
 const symbolsEl = document.getElementById('symbols')
+
 const generateEl = document.getElementById('generate')
 const clipboardEl = document.getElementById('clipboard')
 
+const options = [uppercaseEl, lowercaseEl, numbersEl, symbolsEl]
 
 clipboardEl.addEventListener('click', () => {
     
 })
 
 generateEl.addEventListener('click', () => {
-    
+
 })
 
-function generatePassword(lower, upper, number, symbol, length) {
-    
+function generatePassword(configArr, length) {
+    let specifiedOptions = []
+
+    for (let i = 0; i < options.length; i++) {
+        if (configArr[i]) {
+            specifiedOptions.push(options[i])
+        }
+    }
+
+    for (let i = 0; i < length; i++) {
+        
+    }
 }
 
 function getRandomLower() {
@@ -25,8 +38,6 @@ function getRandomLower() {
     return lowerArr[Math.round((Math.random() * 100) % 26)];
 }
 
-console.log()
-console.log(getRandomLower());
 
 function getRandomUpper() {
     const upperArr = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
