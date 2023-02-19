@@ -13,11 +13,16 @@ const winner = document.getElementById('winner')
 let userScore = 0
 let computerScore = 0
 
+// Score tags
+const userScoreTag = document.getElementById('userScoreVal')
+const computerScoreTag = document.getElementById('compScoreVal')
+
 function play(option) {
     const options = ["rock", "paper", "scissors"]
 
     const rando = Math.round(Math.random() * 10) % 3
     let computerSelection = options[rando]
+    compResult.innerText = computerSelection
 
     switch(option) {
         case "rock":
@@ -28,10 +33,12 @@ function play(option) {
                 
                 case "paper":
                     winner.innerText = "Computer"
+                    computerScore += 1
                     break;
                 
                 case "scissors":
                     winner.innerText = "User"
+                    userScore += 1
                     break;
             }
             break
@@ -40,6 +47,7 @@ function play(option) {
             switch(computerSelection) {
                 case "rock":
                     winner.innerText = "User"
+                    userScore += 1
                     break;
                 
                 case "paper":
@@ -48,18 +56,21 @@ function play(option) {
                 
                 case "scissors":
                     winner.innerText = "Computer"
+                    computerScore += 1
                     break;
             }
             break
 
-        case "scissor":
+        case "scissors":
             switch(computerSelection) {
                 case "rock":
                     winner.innerText = "Computer"
+                    computerScore += 1
                     break;
                 
                 case "paper":
                     winner.innerText = "User"
+                    userScore += 1
                     break;
                 
                 case "scissors":
@@ -68,17 +79,22 @@ function play(option) {
             }
             break
     }
+
+    userScoreTag.innerText = userScore
+    computerScoreTag.innerText = computerScore
 }
 
 rock.addEventListener('click', event => {
-    console.log("in rock :D");
-    userResult.innerText = "Rock"
+    userResult.innerText = "rock"
+    play("rock")
 })
 
 paper.addEventListener('click', event => {
-    userResult.innerText = "Paper"
+    userResult.innerText = "paper"
+    play("paper")
 })
 
 scissors.addEventListener('click', event => {
-    userResult.innerText = "Scissors"
+    userResult.innerText = "scissors"
+    play("scissors")
 })
