@@ -11,7 +11,7 @@ const clipboardEl = document.getElementById('clipboard')
 
 async function copy() {
     if (navigator.clipboard) {
-        await navigator.clipboard.writeText('This text is now in the clipboard');
+        await navigator.clipboard.writeText(resultEl.value);
     } else {
         console.log("Copy not supported :(");
     }
